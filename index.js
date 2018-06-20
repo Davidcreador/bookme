@@ -1,6 +1,8 @@
 require('dotenv').config();
 const program = require('commander');
-const request = require('request');
+
+// libs
+const fetch = require('./lib/fetch');
 
 module.exports = () => {
   program.version(require('./package').version).usage('<command> [options]');
@@ -9,14 +11,7 @@ module.exports = () => {
     .command('book')
     .option('-n, --name <name>')
     .action(cmd => {
-      console.log(cleanArgs(cmd));
-      let uri = `https://www.goodreads.com/search.xml?key=${process.env.KEY}&q=Ender%27s+Game`;
-      console.log(uri);
-      request(uri, function(error, response, body) {
-        console.log('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the HTML for the Google homepage.
-      });
+      fetch(cleanArgs(cmd));
     });
 
   // Program parses all the args and executes them
