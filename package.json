@@ -1,0 +1,29 @@
+{
+  "name": "bookme",
+  "version": "1.0.0",
+  "description": "A CLI to search for books and get the top rating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "cli",
+    "book",
+    "node",
+    "command",
+    "api"
+  ],
+  "author": "David Pastor",
+  "license": "MIT",
+  "bin": {
+    "bookme": "./bin/cli.js"
+  },
+  "dependencies": {
+    "commander": "^2.15.1",
+    "request": "^2.87.0"
+  }
+}
